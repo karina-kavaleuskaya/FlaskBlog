@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} FLASK BLOG {% endblock %}</h1>
+    {% for post in posts %}
+        <a href="{{ url_for('post', post_id=post['id']) }}">
+        <h2>{{ post['title'] }}</h2>
+        </a>
+        <p>Auther: {{ post['auther']}}</p>
+        <p>Data Created: {{ post['created']}}</p>
+
+<a href="{{url_for('edit', post_id=post['id'])}}">
+    <span class="badge badge-warning">Edit</span>
+</a>
+<hr>
+    {% endfor %}
+
+
+
+{% endblock %}
+
